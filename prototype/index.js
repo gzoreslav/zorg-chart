@@ -22,7 +22,7 @@ var matrix = [
 			{more: true},
 			{}
 		],
-		levelName: 'Institution level'
+		levelName: 'Institution level (very long level name; 2+ rows level name example)'
 	},
 	{
 		structure: [
@@ -88,7 +88,7 @@ function matrixToTable(matrix) {
 						className1 = className1 + ' right';
 						text = matrix[i + 1].levelName;
 					}
-					$('<td class="' + className1 + '">' + text + '</td><td>&nbsp;</td>').appendTo($(tr1));
+					$('<td class="' + className1 + '"><span>' + text + '</span></td><td>&nbsp;</td>').appendTo($(tr1));
 				} else {
 					$('<td>&nbsp;</td><td>&nbsp;</td>').appendTo($(tr1));
 				}

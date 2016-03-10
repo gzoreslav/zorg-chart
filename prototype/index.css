@@ -36,9 +36,18 @@ body {
 }
 
 #chart tr.level td {
-	font-style: italic;
-	text-align: right;
-	padding: 18px 3px 0 3px;
+	position: relative;
+	padding: 28px 3px 0 3px;
+}
+
+#chart tr.level td span {
+	position: absolute;
+    background-color: #fff;
+    left: 0;
+    bottom: 0;
+    min-width: 200%;
+    text-align: center;
+    font-style: italic;
 	color: #777;
 }
 
