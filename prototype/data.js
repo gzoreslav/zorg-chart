@@ -55,14 +55,15 @@ var data = {
 		{id: 'root',        title: 'Root level'},
 		{id: 'institution', title: 'Institution level'},
 		{id: 'hospital',    title: 'Hospital level'},
-		{id: 'department',  title: 'Department level'}
+		{id: 'department',  title: 'Department level'},
+		{id: 'doctor',      title: 'Doctors'}
 	],
 	items: [
-		{id: 'MCIC',                   title: 'MCIC Vermont, Inc.',                             parent: null,             level: 'root'},
+		{id: 'MCIC', title: 'MCIC Vermont, Inc.', parent: null, level: 'root'},
 
-		{id: 'MCIC-NYPH',              title: 'NYPH-CO-New York-Presbyterian Hospital',         parent: 'MCIC',           level: 'institution'},
-		{id: 'MCIC-JHHS',              title: 'JHHS-CO-Johns Hopkins Health Services',          parent: 'MCIC',           level: 'institution'},
-		{id: 'MCIC-URMC',              title: 'URMC-CO-University of Rochester Medical Center', parent: 'MCIC',           level: 'institution'},
+		{id: 'MCIC-NYPH', title: 'NYPH-CO-New York-Presbyterian Hospital', parent: 'MCIC', level: 'institution'},
+		{id: 'MCIC-JHHS', title: 'JHHS-CO-Johns Hopkins Health Services', parent: 'MCIC', level: 'institution'},
+		{id: 'MCIC-URMC', title: 'URMC-CO-University of Rochester Medical Center', parent: 'MCIC', level: 'institution'},
 
 		{id: 'MCIC-JHHS-ACHS',         title: 'JHHS-ACHS-All Children\'s Hospital, Inc.',       parent: 'MCIC-JHHS',      level: 'hospital'},
 		{id: 'MCIC-JHHS-ARS',          title: 'JHHS-ARS-American Radiology Services',           parent: 'MCIC-JHHS',      level: 'hospital'},
@@ -100,7 +101,10 @@ var data = {
 
 		{id: 'MCIC-NYPH-ARS-1',        title: 'New York JHBP-1',                                parent: 'MCIC-NYPH-ARS',  level: 'department'},
 		{id: 'MCIC-NYPH-ARS-2',        title: 'New York JHBP-2',                                parent: 'MCIC-NYPH-ARS',  level: 'department'},
-		{id: 'MCIC-NYPH-ARS-3',        title: 'New York JHBP-3',                                parent: 'MCIC-NYPH-ARS',  level: 'department'}
+		{id: 'MCIC-NYPH-ARS-3',        title: 'New York JHBP-3',                                parent: 'MCIC-NYPH-ARS',  level: 'department'},
+
+		{id: 'MCIC-JHHS-ACHS-Allergy-J', title: 'dr.Jackson',                                     parent: 'MCIC-JHHS-ACHS-Allergy', level: 'doctor'},
+		{id: 'MCIC-JHHS-ACHS-Allergy-S', title: 'dr.Sarra',                                       parent: 'MCIC-JHHS-ACHS-Allergy', level: 'doctor'}
 
 	],
 	selected: 'MCIC'

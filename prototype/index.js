@@ -144,11 +144,11 @@ function transform(data) {
 		}
 	}
 	if (elements.length > 0) {
-		if (result.length > 0) {
-			while (result[result.length - 1].structure.length < elements.length) {
-				result[result.length - 1].structure.push({});
+		for (k = result.length - 1; k >= 0; k--) {
+			while (result[k].structure.length < elements.length) {
+				result[k].structure.push({});
 			}
-			while (result[result.length - 1].structure.length > elements.length) {
+			while (result[k].structure.length > elements.length) {
 				elements.push({});
 			}
 		}
@@ -177,11 +177,11 @@ function transform(data) {
 			}
 		}
 		if (elements.length > 0) {
-			if (result.length > 0) {
-				while (result[result.length - 1].structure.length < elements.length) {
-					result[result.length - 1].structure.push({});
+			for (k = result.length - 1; k >= 0; k--) {
+				while (result[k].structure.length < elements.length) {
+					result[k].structure.push({});
 				}
-				while (result[result.length - 1].structure.length > elements.length) {
+				while (result[k].structure.length > elements.length) {
 					elements.push({});
 				}
 			}
@@ -189,6 +189,7 @@ function transform(data) {
 		}
 	}
 	while (sel.parent);
+	console.log(result);
 	return result;
 }
 
