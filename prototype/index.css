@@ -16,6 +16,8 @@ body {
 	text-align: center;
 	min-width: 50px;
 	max-width: 160px;
+	position: relative;
+	height: 1;
 }
 
 #chart td.right {
@@ -60,11 +62,21 @@ body {
 	background-color: #fff;
 	cursor: pointer;
 	box-shadow: 5px 5px 10px rgba(50, 50, 50, 0.5);
+	height: 100%;
 }
 
 .current {
 	border: 1px solid #FFCA00;
+}
+
+.current:before {
+	content: " ";
+	position: absolute;
 	box-shadow: 0 0 6px rgba(255, 217, 0, 0.5);
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
 }
 
 .selected {
@@ -107,4 +119,14 @@ body {
 	position: relative;
 	cursor: pointer;
 	border: none;
+}
+
+.arrow-bottom {
+	background-image: url(arrow-bottom.gif);
+    display: block;
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    right: -5px;
+    bottom: -1px;
 }

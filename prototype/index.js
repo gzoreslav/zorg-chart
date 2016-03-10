@@ -52,7 +52,7 @@ function matrixToTable(matrix) {
 					if ((j < width - 1) && (matrix[i + 1].structure[j + 1].name || matrix[i + 1].structure[j + 1].more)) {
 						className2 = className2 + ' top';
 					}
-					$('<td class="' + className1 + '">&nbsp;</td><td class="' + className2 + '">&nbsp;</td>').appendTo($(tr2));
+					$('<td class="' + className1 + '"><span class="arrow-bottom">&nbsp;</span></td><td class="' + className2 + '">&nbsp;</td>').appendTo($(tr2));
 				} else {
 					$('<td>&nbsp;</td><td>&nbsp;</td>').appendTo($(tr2));
 				}
