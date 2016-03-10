@@ -209,7 +209,7 @@ function draw() {
 		matrixToTable(transformedData);
 		$('.mask').hide();
 		$('.spinner-container').hide();
-	}, 200);
+	}, 100);
 }
 
 $( document ).ready(draw);
