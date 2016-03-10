@@ -1,55 +1,3 @@
-//data in matrix format
-var matrix = [
-	{
-		structure: [
-			{}, 
-			{}, 
-			{},
-			{name: 'MCIC-MCIC Vermont, Inc.', selected: true}, 
-			{}, 
-			{},
-			{}
-		],
-		levelName: 'root'
-	},
-	{
-		structure: [
-			{}, 
-			{more: true},
-			{name: 'NYPH-CO-New York-Presbyterian Hospital', hasChilren: true}, 
-			{name: 'JHHS-CO-Johns Hopkins Health Services', selected: true}, 
-			{name: 'URMC-CO-University of Rochester Medical Center', hasChilren: true}, 
-			{more: true},
-			{}
-		],
-		levelName: 'Institution level (very long level name; 2+ rows level name example)'
-	},
-	{
-		structure: [
-			{}, 
-			{more: true},
-			{name: 'JHHS-ACHS-All Children\'s Hospital, Inc.', selected: true}, 
-			{name: 'JHHS-ARS-American Radiology Services', hasChilren: true}, 
-			{name: 'JHHS-JHBP-Bayview Physicians', hasChilren: true}, 
-			{more: true},
-			{}
-		],
-		levelName: 'Hospital level'
-	},
-	{
-		structure: [
-			{more: true},
-			{name: 'ACHS39-Allergy', current: true}, 
-			{name: 'JACHS39-2'}, 
-			{name: 'ACHS39-3'}, 
-			{more: true},
-			{},
-			{}
-		],
-		levelName: 'Department level'
-	}
-];
-
 //temp function modify matrix to html table
 function matrixToTable(matrix) {
 	var html = '';
@@ -62,7 +10,7 @@ function matrixToTable(matrix) {
 		var tr2 = $('<tr class="level2"/>');
 		for (j = 0; j < width; j++) {
 			var className = 'item';
-			if (matrix[i].structure[j].hasChilren) {
+			if (matrix[i].structure[j].hasChildren && !matrix[i].structure[j].selected) {
 				className = className + ' group';
 			}
 			if (matrix[i].structure[j].selected) {
@@ -72,7 +20,10 @@ function matrixToTable(matrix) {
 				className = className + ' current';
 			}
 			if (matrix[i].structure[j].name) {
-				$('<td colspan="2"><div class="' + className + '">' + matrix[i].structure[j].name + '</div></td>').appendTo($(tr));
+				$('<td colspan="2"><div class="' + 
+					className + '" onclick="selectItem(this);" data-id="' + 
+					matrix[i].structure[j].id + '">' + 
+					matrix[i].structure[j].name + '</div></td>').appendTo($(tr));
 			} else {
 				if (matrix[i].structure[j].more) {
 					$('<td colspan="2">...</td>').appendTo($(tr));
@@ -113,8 +64,16 @@ function matrixToTable(matrix) {
 	}
 };
 
-$( document ).ready(
-	function() {
-		matrixToTable(matrix);
-	}
-);
+function selectItem(target) {
+	var sel = $(target).data('id');
+	data.selected = sel;
+	draw();
+}
+
+function draw() {
+	//matrixToTable(matrix);
+	var transformedData = transform(data);
+	matrixToTable(transformedData);
+}
+
+$( document ).ready(draw);
