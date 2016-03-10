@@ -192,6 +192,7 @@ function transform(data) {
 	return result;
 }
 
+//click event
 function selectItem(target) {
 	var sel = $(target).data('id');
 	data.selected = sel;
