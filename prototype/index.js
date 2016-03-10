@@ -64,6 +64,134 @@ function matrixToTable(matrix) {
 	}
 };
 
+function findLevel(id) {
+	for (var i = 0; i < data.levels.length; i++) {
+		if (data.levels[i].id === id) {
+			return data.levels[i].title;
+		}
+	}
+	return null;
+}
+
+//add empty cells from left side
+function moveRight(result) {
+	for (var i = 0; i < result.length; i++) {
+		for (var j = 0; j < result[i].structure.length; i++) {
+			result[i].structure[j].unshift({});
+		}
+	}
+}
+
+//add empty cells from right side
+function moveLeft(result) {
+	for (var i = 0; i < result.length; i++) {
+		for (var j = 0; j < result[i].structure.length; i++) {
+			result[i].structure[j].push({});
+		}
+	}
+}
+
+function hasChildren(id) {
+	for (var i = 0; i < data.items.length; i++) {
+		if (data.items[i].parent === id) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function transform(data) {
+	var result = [];
+	//find if selected has children
+	var elements = [];
+	for (var i = 0; i < data.items.length; i++) {
+		if (data.items[i].parent === data.selected) {
+			elements.push({
+				id: data.items[i].id, 
+				level: data.items[i].level, 
+				name: data.items[i].title, 
+				selected: (data.items[i].id === data.selected),
+				current: (data.items[i].id === data.selected),
+				hasChildren: hasChildren(data.items[i].id)
+			});
+		}
+	}
+	if (elements.length > 0) {
+		result.unshift({structure: elements, levelName: findLevel(elements[0].level)});
+	}
+	//find selected element
+	var sel = null;
+	for (var i = 0; i < data.items.length; i++) {
+		if (data.items[i].id === data.selected) {
+			sel = data.items[i];
+		}
+	}
+	//find selected sublings
+	elements = [];
+	//skip if selected root
+	if (sel.parent) {
+		for (var i = 0; i < data.items.length; i++) {
+			if (data.items[i].parent === sel.parent) {
+				elements.push({
+					id: data.items[i].id, 
+					level: data.items[i].level, 
+					name: data.items[i].title, 
+					selected: (data.items[i].id === sel.id),
+					current: (data.items[i].id === data.selected),
+					hasChildren: hasChildren(data.items[i].id)
+				});
+			}
+		}
+	}
+	if (elements.length > 0) {
+		if (result.length > 0) {
+			while (result[result.length - 1].structure.length < elements.length) {
+				result[result.length - 1].structure.push({});
+			}
+			while (result[result.length - 1].structure.length > elements.length) {
+				elements.push({});
+			}
+		}
+		result.unshift({structure: elements, levelName: findLevel(elements[0].level)});
+	}
+	//recursivelly find parent
+	do {
+		elements = [];
+		for (var i = 0; i < data.items.length; i++) {
+			if (sel.parent === data.items[i].id) {
+				sel = data.items[i];
+				break;
+			}
+		}
+		//find selected sublings
+		for (var i = 0; i < data.items.length; i++) {
+			if (data.items[i].parent === sel.parent) {
+				elements.push({
+					id: data.items[i].id, 
+					level: data.items[i].level, 
+					name: data.items[i].title, 
+					selected: (data.items[i].id === sel.id),
+					current: (data.items[i].id === data.selected),
+					hasChildren: hasChildren(data.items[i].id)
+				});
+			}
+		}
+		if (elements.length > 0) {
+			if (result.length > 0) {
+				while (result[result.length - 1].structure.length < elements.length) {
+					result[result.length - 1].structure.push({});
+				}
+				while (result[result.length - 1].structure.length > elements.length) {
+					elements.push({});
+				}
+			}
+			result.unshift({structure: elements, levelName: findLevel(elements[0].level)});
+		}
+	}
+	while (sel.parent);
+	return result;
+}
+
 function selectItem(target) {
 	var sel = $(target).data('id');
 	data.selected = sel;
