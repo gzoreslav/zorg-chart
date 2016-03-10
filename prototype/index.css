@@ -130,3 +130,34 @@ body {
     right: -5px;
     bottom: -1px;
 }
+
+.loading {
+    position: relative;
+    min-height: 90px;
+}
+
+.mask {
+	position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.8;
+    background-color: #fff;
+    z-index: 999;
+}
+
+.loading .spinner-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto auto;
+    width: 64px;
+    height: 64px;
+    z-index: 9999;
+    cursor: wait;
+    text-align: center;
+    background-image: url(loading.gif);
+}

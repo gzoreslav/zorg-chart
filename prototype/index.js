@@ -202,8 +202,14 @@ function selectItem(target) {
 
 function draw() {
 	//matrixToTable(matrix);
-	var transformedData = transform(data);
-	matrixToTable(transformedData);
+	$('.mask').show();
+	$('.spinner-container').show();
+	setTimeout(function() {
+		var transformedData = transform(data);
+		matrixToTable(transformedData);
+		$('.mask').hide();
+		$('.spinner-container').hide();
+	}, 200);
 }
 
 $( document ).ready(draw);
