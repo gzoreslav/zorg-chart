@@ -5,7 +5,7 @@ var matrix = [
 			{}, 
 			{}, 
 			{},
-			{name: 'MCIC-MCIC Vermont, Inc.', selected: true}, 
+			{name: 'Super-Puper, Inc.', selected: true}, 
 			{}, 
 			{},
 			{}
@@ -16,32 +16,32 @@ var matrix = [
 		structure: [
 			{}, 
 			{more: true},
-			{name: 'NYPH-CO-New York-Presbyterian Hospital', hasChildren: true}, 
-			{name: 'JHHS-CO-Johns Hopkins Health Services', selected: true}, 
-			{name: 'URMC-CO-University of Rochester Medical Center', hasChildren: true}, 
+			{name: 'Foo Hospital', hasChildren: true}, 
+			{name: 'Foo Services', selected: true}, 
+			{name: 'Foo Center', hasChildren: true}, 
 			{more: true},
 			{}
 		],
-		levelName: 'Institution level (very long level name; 2+ rows level name example)'
+		levelName: 'Foo level (very long level name; 2+ rows level name example)'
 	},
 	{
 		structure: [
 			{}, 
 			{more: true},
-			{name: 'JHHS-ACHS-All Children\'s Hospital, Inc.', selected: true}, 
-			{name: 'JHHS-ARS-American Radiology Services', hasChildren: true}, 
-			{name: 'JHHS-JHBP-Bayview Physicians', hasChildren: true}, 
+			{name: 'Foo Children\'s', selected: true}, 
+			{name: 'Foo Services', hasChildren: true}, 
+			{name: 'Foo', hasChildren: true}, 
 			{more: true},
 			{}
 		],
-		levelName: 'Hospital level'
+		levelName: 'Bar level'
 	},
 	{
 		structure: [
 			{more: true},
-			{name: 'ACHS39-Allergy', current: true}, 
-			{name: 'JACHS39-2'}, 
-			{name: 'ACHS39-3'}, 
+			{name: 'AAAA 1', current: true}, 
+			{name: 'AAAA 2'}, 
+			{name: 'AAAA 3'}, 
 			{more: true},
 			{},
 			{}

@@ -8,40 +8,40 @@ width = 960 - margin.right - margin.left,
 height = 800 - margin.top - margin.bottom;
 
 var root = {
-    name: "MCIC-MCIC Vermont, Inc.",
+    name: "Super-Puper, Inc.",
     children: [{
-        name: "NYPH-CO-New York-Presbyterian Hospital",
+        name: "New Corp",
         children: [{
-            name: "NYPH-ACHS-All Children's Hospital, Inc."
+            name: "New Hospital 1"
         }, {
-            name: "NYPH-ARS-American Radiology Services"
+            name: "New Hospital 2"
         }, {
-            name: "NYPH-JHBP-Bayview Physicians"
+            name: "New Hospital 3"
         }]
     }, {
-        name: "JHHS-CO-Johns Hopkins Health Services",
+        name: "Old Hospital",
         children: [{
-            name: "JHHS-ACHS-All Children's Hospital, Inc.",
+            name: "Old Children's",
             children: [{
-                name: "ACHS39-Allergy"
+                name: "AAAA 1"
             }, {
-                name: "ACHS39-2"
+                name: "AAAA 2"
             }, {
-                name: "ACHS39-3"
+                name: "AAAA 3"
             }, {
-                name: "ACHS39-4"
+                name: "AAAA 4"
             }]
         }, {
-            name: "JHHS-ARS-American Radiology Services"
+            name: "Super Services"
         }, {
-            name: "JHHS-JHBP-Bayview Physicians"
+            name: "Corporation"
         }, {
-            name: "JHHS-ACHS-All Children's Hospital, Inc."
+            name: "Foo Hospital"
         }, {
-            name: "JHHS-ARS-American Radiology Services"
+            name: "Foo Services"
         }]
     }, {
-        name: "URMC-CO-University of Rochester Medical Center"
+        name: "Bar University"
     }]
 };
 
