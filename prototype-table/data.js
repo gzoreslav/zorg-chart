@@ -1,111 +1,59 @@
-//data in matrix format
-var matrix = [
-	{
-		structure: [
-			{}, 
-			{}, 
-			{},
-			{name: 'Super-Puper, Inc.', selected: true}, 
-			{}, 
-			{},
-			{}
-		],
-		levelName: 'root'
-	},
-	{
-		structure: [
-			{}, 
-			{more: true},
-			{name: 'Foo Hospital', hasChildren: true}, 
-			{name: 'Foo Services', selected: true}, 
-			{name: 'Foo Center', hasChildren: true}, 
-			{more: true},
-			{}
-		],
-		levelName: 'Foo level (very long level name; 2+ rows level name example)'
-	},
-	{
-		structure: [
-			{}, 
-			{more: true},
-			{name: 'Foo Children\'s', selected: true}, 
-			{name: 'Foo Services', hasChildren: true}, 
-			{name: 'Foo', hasChildren: true}, 
-			{more: true},
-			{}
-		],
-		levelName: 'Bar level'
-	},
-	{
-		structure: [
-			{more: true},
-			{name: 'AAAA 1', current: true}, 
-			{name: 'AAAA 2'}, 
-			{name: 'AAAA 3'}, 
-			{more: true},
-			{},
-			{}
-		],
-		levelName: 'Department level'
-	}
-];
-
 var data = {
 	levels: [
 		{id: 'root',        title: 'Root level'},
-		{id: 'institution', title: 'Institution level'},
-		{id: 'hospital',    title: 'Hospital level'},
-		{id: 'department',  title: 'Department level'},
-		{id: 'doctor',      title: 'Doctors'}
+		{id: 'institution', title: 'Foo level'},
+		{id: 'hospital',    title: 'Bar level'},
+		{id: 'department',  title: 'Baz level'},
+		{id: 'doctor',      title: 'Qwerty'}
 	],
 	items: [
-		{id: 'MCIC', title: 'MCIC Vermont, Inc.', parent: null, level: 'root'},
+		{id: '1', title: 'Super-Puper, Inc.', parent: null, level: 'root'},
 
-		{id: 'MCIC-NYPH', title: 'NYPH-CO-New York-Presbyterian Hospital', parent: 'MCIC', level: 'institution'},
-		{id: 'MCIC-JHHS', title: 'JHHS-CO-Johns Hopkins Health Services', parent: 'MCIC', level: 'institution'},
-		{id: 'MCIC-URMC', title: 'URMC-CO-University of Rochester Medical Center', parent: 'MCIC', level: 'institution'},
+		{id: '1-1', title: 'Foo Hospital', parent: '1', level: 'institution'},
+		{id: '1-2', title: 'Foo Services', parent: '1', level: 'institution'},
+		{id: '1-3', title: 'Foo Center', parent: '1', level: 'institution'},
 
-		{id: 'MCIC-JHHS-ACHS',         title: 'JHHS-ACHS-All Children\'s Hospital, Inc.',       parent: 'MCIC-JHHS',      level: 'hospital'},
-		{id: 'MCIC-JHHS-ARS',          title: 'JHHS-ARS-American Radiology Services',           parent: 'MCIC-JHHS',      level: 'hospital'},
-		{id: 'MCIC-JHHS-JHBP',         title: 'JHHS-JHBP-Bayview Physicians',                   parent: 'MCIC-JHHS',      level: 'hospital'},
-		{id: 'MCIC-JHHS-ACHS1',         title: 'JHHS-ACHS-All Children\'s Hospital, Inc.',       parent: 'MCIC-JHHS',      level: 'hospital'},
-		{id: 'MCIC-JHHS-ARS1',          title: 'JHHS-ARS-American Radiology Services',           parent: 'MCIC-JHHS',      level: 'hospital'},
-		{id: 'MCIC-JHHS-JHBP1',         title: 'JHHS-JHBP-Bayview Physicians',                   parent: 'MCIC-JHHS',      level: 'hospital'},
-		{id: 'MCIC-JHHS-ACHS2',         title: 'JHHS-ACHS-All Children\'s Hospital, Inc.',       parent: 'MCIC-JHHS',      level: 'hospital'},
-		{id: 'MCIC-JHHS-ARS2',          title: 'JHHS-ARS-American Radiology Services',           parent: 'MCIC-JHHS',      level: 'hospital'},
-		{id: 'MCIC-JHHS-JHBP2',         title: 'JHHS-JHBP-Bayview Physicians',                   parent: 'MCIC-JHHS',      level: 'hospital'},
-		{id: 'MCIC-JHHS-ACHS3',         title: 'JHHS-ACHS-All Children\'s Hospital, Inc.',       parent: 'MCIC-JHHS',      level: 'hospital'},
-		{id: 'MCIC-JHHS-ARS3',          title: 'JHHS-ARS-American Radiology Services',           parent: 'MCIC-JHHS',      level: 'hospital'},
-		{id: 'MCIC-JHHS-JHBP3',         title: 'JHHS-JHBP-Bayview Physicians',                   parent: 'MCIC-JHHS',      level: 'hospital'},
+		{id: '2-1',         title: 'Foo Children\'s',       parent: '1-2',      level: 'hospital'},
+		{id: '2-2',          title: 'Foo Services',           parent: '1-2',      level: 'hospital'},
+		{id: '2-3',         title: 'Foo',                   parent: '1-2',      level: 'hospital'},
+		{id: '2-4',         title: 'Bar Children\'s',       parent: '1-2',      level: 'hospital'},
+		{id: '2-5',          title: 'Bar Services',           parent: '1-2',      level: 'hospital'},
+		{id: '2-6',         title: 'Bar',                   parent: '1-2',      level: 'hospital'},
+		{id: '2-7',         title: 'Baz Children\'s',       parent: '1-2',      level: 'hospital'},
+		{id: '2-8',          title: 'Baz Services',           parent: '1-2',      level: 'hospital'},
+		{id: '2-9',         title: 'Baz',                   parent: '1-2',      level: 'hospital'},
+		{id: '2-10',         title: 'Qwe Children\'s',       parent: '1-2',      level: 'hospital'},
+		{id: '2-11',          title: 'Qwe Services',           parent: '1-2',      level: 'hospital'},
+		{id: '2-12',         title: 'Qwe',                   parent: '1-2',      level: 'hospital'},
 
-		{id: 'MCIC-NYPH-ACHS',         title: 'NYPH-ACHS-All Children\'s Hospital, Inc.',       parent: 'MCIC-NYPH',      level: 'hospital'},
-		{id: 'MCIC-NYPH-ARS',          title: 'NYPH-ARS-American Radiology Services',           parent: 'MCIC-NYPH',      level: 'hospital'},
-		{id: 'MCIC-NYPH-JHBP',         title: 'NYPH-JHBP-Bayview Physicians',                   parent: 'MCIC-NYPH',      level: 'hospital'},
+		{id: '3-1',         title: 'Foo Foo Children\'s',       parent: '1-1',      level: 'hospital'},
+		{id: '3-2',          title: 'Foo Foo Services',           parent: '1-1',      level: 'hospital'},
+		{id: '3-3',         title: 'Foo Foo',                   parent: '1-1',      level: 'hospital'},
 
-		{id: 'MCIC-URMC-ACHS',         title: 'URMC-ACHS-All Children\'s Hospital, Inc.',       parent: 'MCIC-URMC',      level: 'hospital'},
-		{id: 'MCIC-URMC-ARS',          title: 'URMC-ARS-American Radiology Services',           parent: 'MCIC-URMC',      level: 'hospital'},
-		{id: 'MCIC-URMC-JHBP',         title: 'URMC-JHBP-Bayview Physicians',                   parent: 'MCIC-URMC',      level: 'hospital'},
+		{id: '4-1',         title: 'Qwe Children\'s',       parent: '1-3',      level: 'hospital'},
+		{id: '4-2',          title: 'Qwe Services',           parent: '1-3',      level: 'hospital'},
+		{id: '4-3',         title: 'Qwe',                   parent: '1-3',      level: 'hospital'},
 
-		{id: 'MCIC-JHHS-ACHS-Allergy', title: 'ACHS39-Allergy',                                 parent: 'MCIC-JHHS-ACHS', level: 'department'},
-		{id: 'MCIC-JHHS-ACHS-2',       title: 'ACHS39-2',                                       parent: 'MCIC-JHHS-ACHS', level: 'department'},
-		{id: 'MCIC-JHHS-ACHS-3',       title: 'ACHS39-3',                                       parent: 'MCIC-JHHS-ACHS', level: 'department'},
-		{id: 'MCIC-JHHS-ACHS-4',       title: 'ACHS39-4',                                       parent: 'MCIC-JHHS-ACHS', level: 'department'},
+		{id: '1-1-1', title: 'AAAA',                                 parent: '2-1', level: 'department'},
+		{id: '1-1-2',       title: 'AAAA 2',                                       parent: '2-1', level: 'department'},
+		{id: '1-1-3',       title: 'AAAA 3',                                       parent: '2-1', level: 'department'},
+		{id: '1-1-4',       title: 'AAAA 4',                                       parent: '2-1', level: 'department'},
 
-		{id: 'MCIC-JHHS-ARS-1',        title: 'Johns Hopkins ARS-1',                            parent: 'MCIC-JHHS-ARS',  level: 'department'},
-		{id: 'MCIC-JHHS-ARS-2',        title: 'Johns Hopkins ARS-2',                            parent: 'MCIC-JHHS-ARS',  level: 'department'},
-		{id: 'MCIC-JHHS-ARS-3',        title: 'Johns Hopkins ARS-3',                            parent: 'MCIC-JHHS-ARS',  level: 'department'},
+		{id: '1-2-1',        title: 'Johns 1',                            parent: '2-2',  level: 'department'},
+		{id: '1-2-2',        title: 'Johns 2',                            parent: '2-2',  level: 'department'},
+		{id: '1-2-3',        title: 'Johns 3',                            parent: '2-2',  level: 'department'},
 
-		{id: 'MCIC-JHHS-JHBP-1',       title: 'Johns Hopkins JHBP-1',                           parent: 'MCIC-JHHS-JHBP',  level: 'department'},
-		{id: 'MCIC-JHHS-JHBP-2',       title: 'Johns Hopkins JHBP-2',                           parent: 'MCIC-JHHS-JHBP',  level: 'department'},
-		{id: 'MCIC-JHHS-JHBP-3',       title: 'Johns Hopkins JHBP-3',                           parent: 'MCIC-JHHS-JHBP',  level: 'department'},
+		{id: '1-3-1',       title: 'Jackson 1',                           parent: '3-1',  level: 'department'},
+		{id: '1-3-2',       title: 'Jackson 2',                           parent: '3-1',  level: 'department'},
+		{id: '1-3-3',       title: 'Jackson 3',                           parent: '3-1',  level: 'department'},
 
-		{id: 'MCIC-NYPH-ARS-1',        title: 'New York JHBP-1',                                parent: 'MCIC-NYPH-ARS',  level: 'department'},
-		{id: 'MCIC-NYPH-ARS-2',        title: 'New York JHBP-2',                                parent: 'MCIC-NYPH-ARS',  level: 'department'},
-		{id: 'MCIC-NYPH-ARS-3',        title: 'New York JHBP-3',                                parent: 'MCIC-NYPH-ARS',  level: 'department'},
+		{id: '1-4-1',        title: 'New York 1',                                parent: '4-2',  level: 'department'},
+		{id: '1-4-2',        title: 'New York 2',                                parent: '4-2',  level: 'department'},
+		{id: '1-4-3',        title: 'New York 3',                                parent: '4-2',  level: 'department'},
 
-		{id: 'MCIC-JHHS-ACHS-Allergy-J', title: 'dr.Jackson',                                     parent: 'MCIC-JHHS-ACHS-Allergy', level: 'doctor'},
-		{id: 'MCIC-JHHS-ACHS-Allergy-S', title: 'dr.Sarra',                                       parent: 'MCIC-JHHS-ACHS-Allergy', level: 'doctor'}
+		{id: 'a', title: 'dr.Jackson',                                     parent: '1-4-1', level: 'doctor'},
+		{id: 'b', title: 'dr.Sarra',                                       parent: '1-4-1', level: 'doctor'}
 
 	],
-	selected: 'MCIC'
+	selected: '1'
 };
